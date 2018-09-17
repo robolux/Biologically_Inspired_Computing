@@ -1,23 +1,25 @@
 # Assignment 1 Main - Biologically Inspired Computing
-# 08/29/2018
 # Hunter Phillips
 
 import sys
 import numpy as nmp
 import scipy as scp
 import csv
+from solvers import *
+
+if __name__ == "__main__":
+
+    ic = int(raw_input('How many cities do you want to scan for the optimal path?: '))
+    cities, distance = open_file() # open file
+    cs, cl = num_cities(ic,distance) # reshape with requested size to compute
+    # city size, city list
+
+    # Call Exhaustive
+    exhaustive(cities, distance, cs, cl)
 
 
-def main():
-    data = open_file()
-    print(data[1][1])
+    # Call Hill Climb
+    nr = int(raw_input('How many runs do you want the hill climber to perform?: '))
+    ni = int(raw_input('How many iterations do you want the hill climber to perform?: '))
 
-
-def open_file():
-    with open("european_cities.csv", "r") as f:
-        data = list(csv.reader(f, delimiter=';'))
-    return data
-
-# def parser(data):
-
-main()
+    hill_climb(cities, distance, cs, cl, nr, ic, ni)
