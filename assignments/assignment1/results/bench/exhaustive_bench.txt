@@ -1,0 +1,20 @@
+Number of Cities: 6
+Total Time: 0.00702214241028 seconds
+
+
+Number of Cities: 7
+Total Time: 0.0728440284729 seconds
+
+
+Number of Cities: 8
+Total Time: 0.509792089462 seconds
+
+
+Number of Cities: 9
+Total Time: 4.76532006264 seconds
+
+
+Number of Cities: 10
+Total Time: 50.8413350582 seconds
+
+

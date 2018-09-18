@@ -1,0 +1,237 @@
+Population = 10
+*************************************
+
+Number of Cities: 6
+Total Time: 0.875477075577 seconds
+
+
+Number of Cities: 7
+Total Time: 0.934700012207 seconds
+
+
+Number of Cities: 8
+Total Time: 0.952671051025 seconds
+
+
+Number of Cities: 9
+Total Time: 1.03272008896 seconds
+
+
+Number of Cities: 10
+Total Time: 1.13873910904 seconds
+
+
+Number of Cities: 11
+Total Time: 1.16755199432 seconds
+
+
+Number of Cities: 12
+Total Time: 1.22335290909 seconds
+
+
+Number of Cities: 13
+Total Time: 1.25309991837 seconds
+
+
+Number of Cities: 14
+Total Time: 1.30833005905 seconds
+
+
+Number of Cities: 15
+Total Time: 1.45405101776 seconds
+
+
+Number of Cities: 16
+Total Time: 1.44997382164 seconds
+
+
+Number of Cities: 17
+Total Time: 1.50935077667 seconds
+
+
+Number of Cities: 18
+Total Time: 1.5603621006 seconds
+
+
+Number of Cities: 19
+Total Time: 1.58360004425 seconds
+
+
+Number of Cities: 20
+Total Time: 1.63395595551 seconds
+
+
+Number of Cities: 21
+Total Time: 1.69165682793 seconds
+
+
+Number of Cities: 22
+Total Time: 1.76635599136 seconds
+
+
+Number of Cities: 23
+Total Time: 1.78404188156 seconds
+
+
+Number of Cities: 24
+Total Time: 1.94280600548 seconds
+
+
+Population = 40
+*************************************
+
+Number of Cities: 6
+Total Time: 3.15781807899 seconds
+
+
+Number of Cities: 7
+Total Time: 3.47067785263 seconds
+
+
+Number of Cities: 8
+Total Time: 3.64866685867 seconds
+
+
+Number of Cities: 9
+Total Time: 3.90699601173 seconds
+
+
+Number of Cities: 10
+Total Time: 4.05679893494 seconds
+
+
+Number of Cities: 11
+Total Time: 4.20105314255 seconds
+
+
+Number of Cities: 12
+Total Time: 4.54928517342 seconds
+
+
+Number of Cities: 13
+Total Time: 4.73542094231 seconds
+
+
+Number of Cities: 14
+Total Time: 4.96994400024 seconds
+
+
+Number of Cities: 15
+Total Time: 5.16905212402 seconds
+
+
+Number of Cities: 16
+Total Time: 5.20806097984 seconds
+
+
+Number of Cities: 17
+Total Time: 5.48034405708 seconds
+
+
+Number of Cities: 18
+Total Time: 5.89789390564 seconds
+
+
+Number of Cities: 19
+Total Time: 6.00146102905 seconds
+
+
+Number of Cities: 20
+Total Time: 6.21384096146 seconds
+
+
+Number of Cities: 21
+Total Time: 6.50148487091 seconds
+
+
+Number of Cities: 22
+Total Time: 6.65944695473 seconds
+
+
+Number of Cities: 23
+Total Time: 6.82898592949 seconds
+
+
+Number of Cities: 24
+Total Time: 7.01683306694 seconds
+
+
+Population = 160
+*************************************
+
+Number of Cities: 6
+Total Time: 12.9438180923 seconds
+
+
+Number of Cities: 7
+Total Time: 14.0913829803 seconds
+
+
+Number of Cities: 8
+Total Time: 14.8010799885 seconds
+
+
+Number of Cities: 9
+Total Time: 15.7921419144 seconds
+
+
+Number of Cities: 10
+Total Time: 16.7968468666 seconds
+
+
+Number of Cities: 11
+Total Time: 17.5075438023 seconds
+
+
+Number of Cities: 12
+Total Time: 18.6758840084 seconds
+
+
+Number of Cities: 13
+Total Time: 19.4572460651 seconds
+
+
+Number of Cities: 14
+Total Time: 19.96007514 seconds
+
+
+Number of Cities: 15
+Total Time: 20.9456539154 seconds
+
+
+Number of Cities: 16
+Total Time: 21.7907500267 seconds
+
+
+Number of Cities: 17
+Total Time: 22.3081381321 seconds
+
+
+Number of Cities: 18
+Total Time: 23.5266640186 seconds
+
+
+Number of Cities: 19
+Total Time: 24.2947940826 seconds
+
+
+Number of Cities: 20
+Total Time: 25.3738069534 seconds
+
+
+Number of Cities: 21
+Total Time: 26.0635409355 seconds
+
+
+Number of Cities: 22
+Total Time: 26.5101189613 seconds
+
+
+Number of Cities: 23
+Total Time: 28.2142879963 seconds
+
+
+Number of Cities: 24
+Total Time: 29.2803761959 seconds
+
+

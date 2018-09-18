@@ -1,0 +1,76 @@
+Number of Cities: 6
+Total Time: 0.0072009563446 seconds
+
+
+Number of Cities: 7
+Total Time: 0.0112190246582 seconds
+
+
+Number of Cities: 8
+Total Time: 0.0100610256195 seconds
+
+
+Number of Cities: 9
+Total Time: 0.00875496864319 seconds
+
+
+Number of Cities: 10
+Total Time: 0.0131728649139 seconds
+
+
+Number of Cities: 11
+Total Time: 0.0236818790436 seconds
+
+
+Number of Cities: 12
+Total Time: 0.0126221179962 seconds
+
+
+Number of Cities: 13
+Total Time: 0.0102109909058 seconds
+
+
+Number of Cities: 14
+Total Time: 0.0113091468811 seconds
+
+
+Number of Cities: 15
+Total Time: 0.0103549957275 seconds
+
+
+Number of Cities: 16
+Total Time: 0.0223319530487 seconds
+
+
+Number of Cities: 17
+Total Time: 0.0110659599304 seconds
+
+
+Number of Cities: 18
+Total Time: 0.0124709606171 seconds
+
+
+Number of Cities: 19
+Total Time: 0.0156710147858 seconds
+
+
+Number of Cities: 20
+Total Time: 0.0177710056305 seconds
+
+
+Number of Cities: 21
+Total Time: 0.0149810314178 seconds
+
+
+Number of Cities: 22
+Total Time: 0.0147678852081 seconds
+
+
+Number of Cities: 23
+Total Time: 0.0136489868164 seconds
+
+
+Number of Cities: 24
+Total Time: 0.0135340690613 seconds
+
+
