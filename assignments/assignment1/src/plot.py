@@ -22,15 +22,16 @@ plt.plot(x, av_ga, 'r', label = 'Population of 10')
 
 var_hold, nr_bt = GA(cities, distance, cs, cl, 40, 100, 0.2, 20, 10, 10)
 av_ga = nmp.mean(var_hold, axis=0)
-plt.plot(x, av_ga, 'y', label = 'Population of 30')
+plt.plot(x, av_ga, 'y', label = 'Population of 40')
 
 var_hold, nr_bt = GA(cities, distance, cs, cl, 160, 100, 0.2, 20, 10, 10)
 av_ga = nmp.mean(var_hold, axis=0)
-plt.plot(x, av_ga, 'g', label = 'Population of 90')
+plt.plot(x, av_ga, 'g', label = 'Population of 160')
 
 plt.xlabel('Generation')
 plt.legend(loc='upper right')
 plt.ylabel('Distance')
+plt.ylim(7500, 12000)
 plt.title('Fitness of Genetic Algorithm with 10 Cities')
 filename = os.path.join(save_path,"10_cities.png")
 plt.savefig(filename)   # save figure to .png in ../results/plots
@@ -49,15 +50,16 @@ plt.plot(x, av_ga, 'r', label = 'Population of 10')
 
 var_hold, nr_bt = GA(cities, distance, cs, cl, 40, 100, 0.2, 20, 10, 24)
 av_ga = nmp.mean(var_hold, axis=0)
-plt.plot(x, av_ga, 'y', label = 'Population of 30')
+plt.plot(x, av_ga, 'y', label = 'Population of 40')
 
 var_hold, nr_bt = GA(cities, distance, cs, cl, 160, 100, 0.2, 20, 10, 24)
 av_ga = nmp.mean(var_hold, axis=0)
-plt.plot(x, av_ga, 'g', label = 'Population of 90')
+plt.plot(x, av_ga, 'g', label = 'Population of 160')
 
 plt.xlabel('Generation')
 plt.legend(loc='upper right')
 plt.ylabel('Distance')
+plt.ylim(17000, 30000)
 plt.title('Fitness of Genetic Algorithm with 24 Cities')
 filename = os.path.join(save_path,"24_cities.png")
 plt.savefig(filename)   # save figure to .png in ../results/plots
