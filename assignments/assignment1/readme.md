@@ -18,7 +18,7 @@ All data will be available in /results
 
 ### To plot the fitness of the genetic algorithm as Generation vs Distance
 ```
-python plotting.py
+python plot.py
 ```
 
 All plots will be in /results/plots
