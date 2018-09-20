@@ -6,6 +6,7 @@ import numpy as nmp
 import scipy as scp
 import csv
 from solvers import *
+import time
 
 if __name__ == "__main__":
 
@@ -21,7 +22,10 @@ if __name__ == "__main__":
     # city size, city list
 
     # Call Exhaustive
+    start_time = time.time()
     nc, ideal_trip = exhaustive(cities, distance, cs, cl)
+    end_time = time.time()
+    ex_time = end_time - start_time
     print('\n')
 
     # Call Hill Climb
@@ -29,7 +33,10 @@ if __name__ == "__main__":
     ni = int(raw_input('How many iterations do you want the hill climber to perform?: '))
     print('\n')
 
+    start_time = time.time()
     list_bt = hill_climb(cities, distance, cs, cl, nr, ic, ni)
+    end_time = time.time()
+    hc_time = end_time - start_time
 
     # Call GA
     ps  = int(raw_input('What population size do you want the GA to have?: '))
@@ -38,22 +45,28 @@ if __name__ == "__main__":
     prb = float(raw_input('What probability do you want the GA to have?: '))
     nr2 = int(raw_input('How many runs do you want the GA to perform?: '))
 
+    start_time = time.time()
     var_hold, nr_bt = GA(cities, distance, cs, cl, ps, ng, prb, nr2, ts, ic)
+    end_time = time.time()
+    ga_time = end_time - start_time
 
     # give user pretty outputs
     print("\n\n\nEXHAUSTIVE RESULTS\n******************************\n")
-    print("Best Trip: " + str(ideal_trip) + '\n\n\n')
+    print("Best Trip: " + str(ideal_trip) + '\n\n')
+    print("Computational Time: " + str(ex_time) + '\n\n\n')
 
     print("\nHILL CLIMBING RESULTS\n******************************\n")
     print("Best Trip: " + str(nmp.min(list_bt)) + '\n\n')
     print("Worst Trip: " + str(nmp.max(list_bt)) + '\n\n')
     avg_bt_1 = nmp.mean(list_bt, axis = 0)
     print("Average Trip: " + str(avg_bt_1[0]) + '\n\n')
-    print("Standard Deviation: " + str(nmp.std(list_bt)) + '\n\n\n')
+    print("Standard Deviation: " + str(nmp.std(list_bt)) + '\n\n')
+    print("Computational Time: " + str(hc_time) + '\n\n\n')
 
     print("\nGENETIC ALGORITHM RESULTS\n******************************\n")
     print("Best Trip: " + str(nmp.min(nr_bt)) + '\n\n')
     print("Worst Trip: " + str(nmp.max(nr_bt)) + '\n\n')
     avg_bt_2 = nmp.mean(nr_bt, axis = 0)
     print("Average Trip: " + str(avg_bt_2[0]) + '\n\n')
-    print("Standard Deviation: " + str(nmp.std(nr_bt)) + '\n\n\n')
+    print("Standard Deviation: " + str(nmp.std(nr_bt)) + '\n\n')
+    print("Computational Time: " + str(ga_time) + '\n\n\n')
