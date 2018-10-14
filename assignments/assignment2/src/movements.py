@@ -48,4 +48,4 @@ def data_call(filename):
     test = movements[3::4,0:40]
     test_targets = target[3::4]
 
-	return train, train_targets, valid, valid_targets, test, test_targets
+    return train, train_targets, valid, valid_targets, test, test_targets
