@@ -8,7 +8,7 @@ python main.py
 ```
 
 ### To run selected test cases (as requested by prompt)
-Please note that this can take a while due to the use of large genetic algorithm population sizes.
+Please note that this can take a while.
 
 ```
 python testing.py
