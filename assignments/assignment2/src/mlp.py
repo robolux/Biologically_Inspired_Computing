@@ -53,42 +53,47 @@ class mlp:
 
 	def train(self, inputs, targets, iterations=100):
 
+		def node_mult(var1, var2):
+			mult = []
+			hid_out_u = []
+			hid_out = []
+			c_size = nmp.shape(var2)
+			for mm in range(len(var1)):
+				hid_out_u = []
+				for rx in range(c_size[1]):
+					mult = []
+					for tt in range(c_size[0]):
+						yy = var1[mm][tt]
+						ui = var2[tt][rx]
+						mult_trash = yy * ui
+						mult.append(mult_trash)
+					hid_out_u.append(sum(mult))
+				hid_out.append(hid_out_u)
+			return hid_out
+
 		for i in range(iterations):
 			hiddenL, outputL = self.forward(inputs) # forward
 
 			#Backpropagation
 			outputdelta = (outputL - targets)*(outputL*(1-outputL))						 # sigmoid derivative function
 
+			dim_sum = nmp.shape(self.output_l_weights)
 			rearrange_ol = []
-			for i2 in range(len(self.output_l_weights)+1):
+			for i2 in range(dim_sum[1]):
 			    l2 = []
 			    for row in self.output_l_weights:
 			        l2.append(row[i2])
 			    rearrange_ol.append(l2)
 			rearrange_ol = nmp.asarray(rearrange_ol)
-			print(rearrange_ol)
 
-			mult = []
-			hid_out_u = []
-			hid_out = []
-			for mm in range(len(outputdelta)):
-				hid_out_u = []
-				for rx in range(len(rearrange_ol)-1):
-					mult = []
-					for tt in range(0,8):
-						yy = outputdelta[mm][tt]
-						ui = rearrange_ol[tt][rx]
-						mult_trash = yy * ui
-						mult.append(mult_trash)
-					hid_out_u.append(sum(mult))
-				hid_out.append(hid_out_u)
+
+			hid_out = node_mult(outputdelta, rearrange_ol)
 
 			hid_out = nmp.asarray(hid_out)
 
-			hid_delta = hid_out*(hiddenL*(1-hiddenL))
+			hiddendelta = hid_out*(hiddenL*(1-hiddenL))
 
-			hiddendelta = outputdelta.dot(self.output_l_weights.T)*(hiddenL*(1-hiddenL)) # sigmod derivative function
-
+			# hiddendelta = outputdelta.dot(self.output_l_weights.T)*(hiddenL*(1-hiddenL)) # sigmod derivative function
 
 			# update weights
 			self.output_l_weights -= self.eta*hiddenL.T.dot(outputdelta)
