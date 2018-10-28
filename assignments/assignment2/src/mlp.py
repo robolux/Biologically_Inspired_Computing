@@ -53,6 +53,7 @@ class mlp:
 
 
 	def train(self, inputs, targets, iterations):
+
 		# using for loops for nodes
 		def node_mult(var1, var2):
 			mult = []
@@ -73,7 +74,7 @@ class mlp:
 				hid_out.append(hid_out_u)
 			return hid_out
 
-		# not used - tried to rewrite list operations into numpy operations
+		# not used - tried to rewrite list operations into numpy array operations
 		# but slowed down code, keeping for future reference
 		def node_mult_array(var1, var2):
 
@@ -83,12 +84,9 @@ class mlp:
 			mult_hid_out_u = nmp.zeros(shape=(1,c_size[1]))
 			mult_hid_out = nmp.zeros(shape=(1,len(var1)),dtype=object)
 			hid_out = nmp.zeros(shape=(len(var1),c_size[1]))
-			#print(c_size)
 
 			for mm in range(len(var1)):
-				#mult_hid_out_u = mult_hid_out_u*0
 				for rx in range(c_size[1]):
-					#mult_o = mult_o*0
 					for tt in range(c_size[0]):
 						yy = var1[mm][tt]
 						ui = var2[tt][rx]
@@ -107,7 +105,7 @@ class mlp:
 			hiddenL, outputL = self.forward(inputs) # forward
 
 			#Backpropagation
-			outputdelta = (outputL - targets)*(outputL*(1-outputL))						 # sigmoid derivative function
+			outputdelta = (outputL - targets)*(outputL*(1-outputL))		# sigmoid derivative function
 
 			dim_sum = nmp.shape(self.output_l_weights)
 			rearrange_ol = []
@@ -122,8 +120,9 @@ class mlp:
 
 			hid_out = nmp.asarray(hid_out)
 
-			hiddendelta = hid_out*(hiddenL*(1-hiddenL))
+			hiddendelta = hid_out*(hiddenL*(1-hiddenL)) # hidden delta assignment
 
+			# Setting Output L Weights
 			dim_olw = nmp.shape(hiddenL)
 			rearrange_olw = []
 			for i2 in range(dim_olw[1]):
@@ -138,7 +137,7 @@ class mlp:
 			mult_olw = nmp.asarray(mult_olw)
 			self.output_l_weights -= mult_olw
 
-
+			# Setting Hidden L Weights
 			dim_hlw = nmp.shape(inputs)
 			rearrange_hlw = []
 			for i2 in range(dim_hlw[1]):
@@ -179,13 +178,13 @@ class mlp:
 
 		mult1 = node_mult(inputs, self.hidden_l_weights)
 		mult1 = nmp.asarray(mult1)
-		hiddenL = 1/(1+nmp.exp(-self.beta*(mult1)))
+		hiddenL = 1/(1+nmp.exp(-self.beta*(mult1))) # sigmoid
 
 		hiddenL[:, 0] = self.bias
 
 		mult2 = node_mult(hiddenL, self.output_l_weights)
 		mult2 = nmp.asarray(mult2)
-		outputL = 1/(1+nmp.exp(-self.beta*(mult2)))
+		outputL = 1/(1+nmp.exp(-self.beta*(mult2))) # sigmoid
 
 		return hiddenL, outputL
 

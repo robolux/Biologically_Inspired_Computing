@@ -14,7 +14,7 @@ train, train_targets, valid, valid_targets, test, test_targets = data_call(filen
 
 save_path = '../results'
 
-for w, g in enumerate(['6', '8', '12'], 1): # number of hidden nodes
+for w, g in enumerate(['4', '6', '8', '12'], 1): # number of hidden nodes
     for w2, g2 in enumerate(['10', '100', '1000'], 1):
         save_path = '../results/'
         filename = os.path.join(save_path, "n_" + str(g) + "_i_" + str(g2) + ".txt")
