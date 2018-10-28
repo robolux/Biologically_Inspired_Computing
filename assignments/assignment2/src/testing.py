@@ -29,9 +29,8 @@ for w, g in enumerate(['6', '8', '12'], 1): # number of hidden nodes
             momentum_i  = 0.0
 
             start_time = time.time()
-            for i in range(iterations):
-            	active = mlp.mlp(train, train_targets, hidn_i, beta = beta_i, eta = eta_i, bias = bias_i, momentum = momentum_i)
-            	active.earlystopping(train, train_targets, valid, valid_targets)
+            active = mlp.mlp(train, train_targets, hidn_i, beta = beta_i, eta = eta_i, bias = bias_i, momentum = momentum_i)
+            active.earlystopping(train, train_targets, valid, valid_targets, iterations)
             end_time = time.time()
             general_time = end_time - start_time
 

@@ -26,7 +26,7 @@ class mlp:
 		self.output_l_weights = 2*nmp.random.random((self.nhidden, self.outputs))-1
 
 
-	def earlystopping(self, inputs, targets, valid, validtargets):
+	def earlystopping(self, inputs, targets, valid, validtargets, iterations):
 
 		#bias on inputs
 		inputb  = nmp.ones((inputs.shape[0], 1))*self.bias
@@ -36,24 +36,23 @@ class mlp:
 		validb = nmp.ones((valid.shape[0], 1))*self.bias
 		valid2 = nmp.concatenate((validb, valid), axis=1)
 
-		err = float('inf')
-		m_err=0.01
-		it = 0
+		breakout = True
+		total_sum = [0.0,0.0]
+		count = 2
 
-		while  err > m_err:
-			self.train(inputb2, targets)
+		while breakout:
+			self.train(inputb2, targets, iterations)
 			hiddenL, outputR =  self.forward(valid2) # forward
+
 			err_u = nmp.sum((outputR-validtargets)**2)/self.n_illa
-
-			if err_u<err:
-				err=err_u
-			else:
-				break
-			it +=1
+			total_sum.append(err_u)
+			if (total_sum[count] > total_sum[count-1]) & (total_sum[count-1] > total_sum[count-2]):
+				breakout = False
+			count = count + 1
 
 
-	def train(self, inputs, targets, iterations=100):
 
+	def train(self, inputs, targets, iterations):
 		# using for loops for nodes
 		def node_mult(var1, var2):
 			mult = []
@@ -138,7 +137,6 @@ class mlp:
 			mult_olw = node_mult(rearrange_olw, outputdelta)
 			mult_olw = nmp.asarray(mult_olw)
 			self.output_l_weights -= mult_olw
-
 
 
 			dim_hlw = nmp.shape(inputs)

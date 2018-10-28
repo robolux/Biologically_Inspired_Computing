@@ -45,9 +45,9 @@ while bx == False:
         print('User Input not recognized as option, please try again.')
 
 print('\nRunning...')
-for i in range(iterations):
-	active = mlp.mlp(train, train_targets, hidn_i, beta = beta_i, eta = eta_i, bias = bias_i, momentum = momentum_i)
-	active.earlystopping(train, train_targets, valid, valid_targets)
+
+active = mlp.mlp(train, train_targets, hidn_i, beta = beta_i, eta = eta_i, bias = bias_i, momentum = momentum_i)
+active.earlystopping(train, train_targets, valid, valid_targets, iterations)
 c_matrix = active.confusion(test, test_targets)
 
 
