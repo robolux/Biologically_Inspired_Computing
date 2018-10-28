@@ -95,9 +95,39 @@ class mlp:
 
 			# hiddendelta = outputdelta.dot(self.output_l_weights.T)*(hiddenL*(1-hiddenL)) # sigmod derivative function
 
+			dim_olw = nmp.shape(hiddenL)
+			rearrange_olw = []
+			for i2 in range(dim_olw[1]):
+			    l_olw = []
+			    for row in hiddenL:
+			        l_olw.append(row[i2])
+			    rearrange_olw.append(l_olw)
+			rearrange_olw = nmp.asarray(rearrange_olw)
+
+			rearrange_olw = rearrange_olw*self.eta
+			mult_olw = node_mult(rearrange_olw, outputdelta)
+			mult_olw = nmp.asarray(mult_olw)
+			self.output_l_weights -= mult_olw
+
+
+
+			dim_hlw = nmp.shape(inputs)
+			rearrange_hlw = []
+			for i2 in range(dim_hlw[1]):
+			    l_hlw = []
+			    for row in inputs:
+			        l_hlw.append(row[i2])
+			    rearrange_hlw.append(l_hlw)
+			rearrange_hlw = nmp.asarray(rearrange_hlw)
+
+			rearrange_hlw = rearrange_hlw*self.eta
+			mult_hlw = node_mult(rearrange_hlw, hiddendelta)
+			mult_hlw = nmp.asarray(mult_hlw)
+			self.hidden_l_weights -= mult_hlw
+
 			# update weights
-			self.output_l_weights -= self.eta*hiddenL.T.dot(outputdelta)
-			self.hidden_l_weights -= self.eta*inputs.T.dot(hiddendelta)
+			# self.output_l_weights -= self.eta*hiddenL.T.dot(outputdelta)
+			# self.hidden_l_weights -= self.eta*inputs.T.dot(hiddendelta)
 
 	def forward(self, inputs):
 		#run forward
