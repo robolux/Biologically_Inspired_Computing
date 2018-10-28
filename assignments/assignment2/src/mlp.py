@@ -24,6 +24,7 @@ class mlp:
 		self.hidden_l_weights= 2*nmp.random.random((self.ninputs, self.nhidden))-1
 		self.output_l_weights = 2*nmp.random.random((self.nhidden, self.outputs))-1
 
+
 	def earlystopping(self, inputs, targets, valid, validtargets):
 
 		#bias on inputs
@@ -49,6 +50,7 @@ class mlp:
 				break
 			it +=1
 
+
 	def train(self, inputs, targets, iterations=100):
 
 		for i in range(iterations):
@@ -56,7 +58,37 @@ class mlp:
 
 			#Backpropagation
 			outputdelta = (outputL - targets)*(outputL*(1-outputL))						 # sigmoid derivative function
+
+			rearrange_ol = []
+			for i2 in range(len(self.output_l_weights)+1):
+			    l2 = []
+			    for row in self.output_l_weights:
+			        l2.append(row[i2])
+			    rearrange_ol.append(l2)
+			rearrange_ol = nmp.asarray(rearrange_ol)
+			print(rearrange_ol)
+
+			mult = []
+			hid_out_u = []
+			hid_out = []
+			for mm in range(len(outputdelta)):
+				hid_out_u = []
+				for rx in range(len(rearrange_ol)-1):
+					mult = []
+					for tt in range(0,8):
+						yy = outputdelta[mm][tt]
+						ui = rearrange_ol[tt][rx]
+						mult_trash = yy * ui
+						mult.append(mult_trash)
+					hid_out_u.append(sum(mult))
+				hid_out.append(hid_out_u)
+
+			hid_out = nmp.asarray(hid_out)
+
+			hid_delta = hid_out*(hiddenL*(1-hiddenL))
+
 			hiddendelta = outputdelta.dot(self.output_l_weights.T)*(hiddenL*(1-hiddenL)) # sigmod derivative function
+
 
 			# update weights
 			self.output_l_weights -= self.eta*hiddenL.T.dot(outputdelta)
